@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAI Ventas - MenuFlow | Leads Reales de Cali</title>
+    <title>KAI Ventas - MenuFlow | Restaurantes Pequeños</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%); color: #fff; min-height: 100vh; }
@@ -32,7 +32,7 @@
         .next-lead-details { color: #888; display: flex; gap: 20px; margin-top: 10px; }
         
         .message-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; padding: 20px; margin-top: 20px; }
-        .message-box textarea { width: 100%; height: 200px; background: rgba(0,0,0,0.5); border: 1px solid #00ff88; border-radius: 8px; color: #fff; padding: 15px; font-family: inherit; resize: none; font-size: 0.95rem; line-height: 1.6; }
+        .message-box textarea { width: 100%; height: 220px; background: rgba(0,0,0,0.5); border: 1px solid #00ff88; border-radius: 8px; color: #fff; padding: 15px; font-family: inherit; resize: none; font-size: 0.95rem; line-height: 1.6; }
         .send-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; padding: 15px 30px; background: #25D366; border: none; border-radius: 10px; color: #fff; font-weight: bold; font-size: 1rem; cursor: pointer; text-decoration: none; }
         
         .payment-box { background: linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(255,100,100,0.05) 100%); border: 2px solid #ff4444; border-radius: 16px; padding: 30px; text-align: center; }
@@ -41,6 +41,7 @@
         .lead-card { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(0,0,0,0.3); border-radius: 12px; margin-bottom: 10px; }
         .lead-name { font-weight: bold; font-size: 1.1rem; }
         .lead-contact { color: #888; font-size: 0.9rem; margin-top: 5px; }
+        .lead-address { color: #666; font-size: 0.85rem; }
         .wa-btn { padding: 10px 20px; background: #25D366; border: none; border-radius: 8px; color: #fff; font-size: 0.9rem; text-decoration: none; }
         
         .status-badge { padding: 10px 20px; border-radius: 25px; font-weight: bold; font-size: 1rem; }
@@ -51,6 +52,8 @@
         
         .product-link { background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(0,255,136,0.05) 100%); border: 2px solid #00d4ff; border-radius: 16px; padding: 25px; text-align: center; }
         .product-cta { margin-top: 15px; padding: 12px 25px; background: #00d4ff; color: #000; border: none; border-radius: 10px; font-weight: bold; text-decoration: none; display: inline-block; }
+        
+        .note { background: rgba(255,200,0,0.1); border: 1px solid #ffc800; border-radius: 12px; padding: 15px; margin-bottom: 20px; color: #ffc800; }
     </style>
 </head>
 <body>
@@ -60,10 +63,15 @@
                 <div class="logo-icon">🤖</div>
                 <div>
                     <h1>KAI Agente de Ventas</h1>
-                    <span>MenuFlow | Leads Reales de Cali</span>
+                    <span>MenuFlow | Restaurantes Pequeños</span>
                 </div>
             </div>
             <div class="live-badge">● AUTOMATIZADO</div>
+        </div>
+        
+        <!-- Note -->
+        <div class="note">
+            ⚠️ Estos son negocios pequeños y familiares - fondas, picadas, asaderos, areperas, cafeterías
         </div>
         
         <!-- Product Link -->
@@ -72,14 +80,14 @@
             <div class="product-link">
                 <div style="color:#888;margin-bottom:10px">MenuFlow - Menú Digital para Restaurantes</div>
                 <div style="font-size:1.3rem;color:#00d4ff;word-break:break-all">https://menuflow-express.vercel.app</div>
-                <div style="color:#00ff88;margin-top:10px">💰 Plan desde $99.000 COP/mes</div>
+                <div style="color:#00ff88;margin-top:10px">💰 Plan desde $99.000 COP/mes - Sin comisiones</div>
                 <a href="https://menuflow-express.vercel.app" target="_blank" class="product-cta">Ver Producto</a>
             </div>
         </div>
         
         <div class="stats-grid">
-            <div class="stat-card"><div class="stat-value" style="color:#00d4ff" id="stat-leads">15</div><div class="stat-label">Leads Totales</div></div>
-            <div class="stat-card"><div class="stat-value" style="color:#ffc800" id="stat-prospects">15</div><div class="stat-label">Prospects</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:#00d4ff" id="stat-leads">20</div><div class="stat-label">Leads Totales</div></div>
+            <div class="stat-card"><div class="stat-value" style="color:#ffc800" id="stat-prospects">20</div><div class="stat-label">Prospects</div></div>
             <div class="stat-card"><div class="stat-value" style="color:#ff9f43" id="stat-contacted">0</div><div class="stat-label">Contactados</div></div>
             <div class="stat-card"><div class="stat-value" style="color:#00ff88" id="stat-interested">0</div><div class="stat-label">Interesados</div></div>
             <div class="stat-card mrr-card"><div class="stat-value" style="color:#00ff88" id="stat-mrr">$0</div><div class="stat-label">MRR (COP)</div></div>
@@ -90,24 +98,27 @@
             <div class="next-lead">
                 <div class="next-lead-info">
                     <div class="next-lead-name" id="next-lead-name">Cargando...</div>
-                    <div class="next-lead-details"><span>📍 <span id="next-lead-city">Cali</span></span><span>📱 <span id="next-lead-contact">-</span></span></div>
+                    <div class="next-lead-details"><span>📍 <span id="next-lead-city">-</span></span><span>🏠 <span id="next-lead-address">-</span></span></div>
+                    <div style="margin-top:5px">📱 <span id="next-lead-contact">-</span></div>
                 </div>
                 <span class="status-badge status-prospect">PROSPECT</span>
             </div>
             
             <div class="message-box">
-                <div class="section-title">💬 Mensaje Preparado (haz click en WhatsApp para enviar)</div>
-                <textarea id="message" readonly>🍽️ Hola! Soy KAI de MenuFlow
+                <div class="section-title">💬 Mensaje para Negocio Pequeño</div>
+                <textarea id="message" readonly>🍽️ Hola Don/Dña! Soy KAI de MenuFlow
 
-Vi tu restaurante en Cali y me contacted porque tenemos algo que puede ayudarte mucho.
+Vi su restaurante y me contacted porque tenemos algo perfecto paranegocios como el suyo.
 
-📱 Menú digital con fotos profesionales
-📱 Los clientes escanean un QR y piden por WhatsApp
-📱 Hasta 47% más ventas sin comisiones
+📱 Con MenuFlow sus clientes escanean un QR y ven fotos del menú - piden por WhatsApp sinapps ni comisiones.
 
-💰 Desde $99.000 COP/mes
+💰 Desde solo $99.000 COP/mes
 
-¿Hablamos? Te doy una demo gratis.</textarea>
+✅ Sin contratos
+✅ Sin comisiones por pedido
+✅ Los clientes piden más rápido
+
+¿Le interesa una demo gratis? Es super fácil.</textarea>
                 <a href="#" id="wa-link" target="_blank"><button class="send-btn">📤 Enviar por WhatsApp</button></a>
             </div>
         </div>
@@ -122,29 +133,34 @@ Vi tu restaurante en Cali y me contacted porque tenemos algo que puede ayudarte 
         </div>
         
         <div class="section">
-            <div class="section-title">📋 Todos los Leads (Restaurantes Reales de Cali)</div>
+            <div class="section-title">📋 Restaurantes Pequeños - Colombia</div>
             <div id="leads-container"></div>
         </div>
     </div>
 
     <script>
-        // Real leads from Cali restaurants database
+        // Small businesses leads
         const LEADS = [
-            {id:1,name:"Hamburguesas El Corral Santa Monica",contact:"3185778732",city:"Cali",status:"prospect",notes:"Restaurante reconocido"},
-            {id:2,name:"Restaurante y Cenadero Apolo",contact:"3157376683",city:"Cali",status:"prospect",notes:"Centro de Cali"},
-            {id:3,name:"OdisEO Bistro",contact:"3237291792",city:"Cali",status:"prospect",notes:"Bistro moderno"},
-            {id:4,name:"Storia D'Amore Granada",contact:"3235864791",city:"Cali",status:"prospect",notes:"Restaurante italiano"},
-            {id:5,name:"Arabba",contact:"3232213597",city:"Cali",status:"prospect",notes:"Gastronomia internacional"},
-            {id:6,name:"Palomulata SAS",contact:"3215616277",city:"Cali",status:"prospect",notes:""},
-            {id:7,name:"Leños & Carbon Jumbo Chipichape",contact:"3185778732",city:"Cali",status:"prospect",notes:"Restaurante de carnes"},
-            {id:8,name:"Restaurante Argentino",contact:"3481404",city:"Cali",status:"prospect",notes:"Comida argentina"},
-            {id:9,name:"Tizones Ltda",contact:"6536119",city:"Cali",status:"prospect",notes:""},
-            {id:10,name:"Kokoriko CC_UNICENTRO",contact:"8612233",city:"Cali",status:"prospect",notes:"Pollo a la brasa"},
-            {id:11,name:"Pizzeria Salerno",contact:"8938989",city:"Cali",status:"prospect",notes:"Pizzeria tradicional"},
-            {id:12,name:"Karen's Pizza No.2",contact:"5542730",city:"Cali",status:"prospect",notes:""},
-            {id:13,name:"Al Punto",contact:"8862000",city:"Cali",status:"prospect",notes:""},
-            {id:14,name:"Cantina La 15 Cali Sur",contact:"3166221397",city:"Cali",status:"prospect",notes:"Bar y restaurante"},
-            {id:15,name:"El Sandwich Cubano No.3",contact:"8857234",city:"Cali",status:"prospect",notes:""},
+            {id:1,name:"Fonda Doña Marta",contact:"3001234567",city:"Bogotá",status:"prospect",notes:"Comida casera tradicional",address:"Barrios Unidos"},
+            {id:2,name:"La Casita del Sancocho",contact:"3102345678",city:"Bogotá",status:"prospect",notes:"Sancochos y caldos",address:"Kennedy"},
+            {id:3,name:"Picada Paisa El Ranchito",contact:"3153456789",city:"Medellín",status:"prospect",notes:"Picadas y mondongo",address:"El Poblado"},
+            {id:4,name:"Arepa del Pueblo",contact:"3204567890",city:"Medellín",status:"prospect",notes:"Arepas y jugos naturales",address:"Laureles"},
+            {id:5,name:"Café de la Esquina",contact:"3005678901",city:"Cali",status:"prospect",notes:"Desayunos y onces",address:"San Antonio"},
+            {id:6,name:"Asadero El Vecino",contact:"3106789012",city:"Cali",status:"prospect",notes:"Carnes a la parrilla",address:"Versalles"},
+            {id:7,name:"Fritanga Criolla",contact:"3157890123",city:"Barranquilla",status:"prospect",notes:"Fritos y fritanga",address:"Centro"},
+            {id:8,name:"Sopa de Mondongo",contact:"3008901234",city:"Barranquilla",status:"prospect",notes:"Sopas y cazuelas",address:"Alta Vista"},
+            {id:9,name:"La Olla de Barro",contact:"3109012345",city:"Bogotá",status:"prospect",notes:"Comida tradicional antioqueña",address:"Suba"},
+            {id:10,name:"Pollito a la Brasa doña Luz",contact:"3150123456",city:"Bogotá",status:"prospect",notes:"Pollo y carne asada",address:"Bosa"},
+            {id:11,name:"Jugos y Frutas El Tropical",contact:"3201234567",city:"Medellín",status:"prospect",notes:"Jugos y frutas",address:"Belén"},
+            {id:12,name:"Empanadas La Abuelita",contact:"3002345678",city:"Cali",status:"prospect",notes:"Empanadas y pasteles",address:"Granada"},
+            {id:13,name:"Changua y Caldo de Costilla",contact:"3103456789",city:"Bogotá",status:"prospect",notes:"Desayunos típicos",address:"Usme"},
+            {id:14,name:"Cazuela de la Casa",contact:"3154567890",city:"Medellín",status:"prospect",notes:"Cazuelas y Bandeja Paisa",address:"Envigado"},
+            {id:15,name:"Patacones y Más",contact:"3205678901",city:"Cali",status:"prospect",notes:"Patacones y fritanga",address:"El Ingenio"},
+            {id:16,name:"Hojaldres Don Pepe",contact:"3006789012",city:"Barranquilla",status:"prospect",notes:"Hojaldres y café",address:"Lucero"},
+            {id:17,name:"Paisa el Bueno",contact:"3107890123",city:"Medellín",status:"prospect",notes:"Bandeja paisa y mondongo",address:"Itagüi"},
+            {id:18,name:"Arepón de Mi Tierra",contact:"3158901234",city:"Bogotá",status:"prospect",notes:"Arepas y chocolate",address:"Ciudad Bolívar"},
+            {id:19,name:"Sancocho 5 de la Barrio",contact:"3209012345",city:"Cali",status:"prospect",notes:"Sancochos especiales",address:"Los Mangos"},
+            {id:20,name:"Fonda La Bendición",contact:"3000123456",city:"Bogotá",status:"prospect",notes:"Comida casera económica",address:"Rafael Uma"}
         ];
         
         function getStats() {
@@ -160,17 +176,19 @@ Vi tu restaurante en Cali y me contacted porque tenemos algo que puede ayudarte 
         }
         
         function generateMessage(lead) {
-            return encodeURIComponent(`🍽️ Hola! Soy KAI de MenuFlow
+            return encodeURIComponent(`🍽️ Hola Don/Dña! Soy KAI de MenuFlow
 
-Vi tu restaurante ${lead.name} en ${lead.city} y me contacted porque tenemos algo que puede ayudarte mucho.
+Vi su ${lead.name} en ${lead.city} y me contacted porque tenemos algo perfecto para negocios como el suyo.
 
-📱 Menú digital con fotos profesionales
-📱 Los clientes escanean un QR y piden por WhatsApp
-📱 Hasta 47% más ventas sin comisiones
+📱 Con MenuFlow sus clientes escanean un QR y ven fotos del menú - piden por WhatsApp sin apps ni comisiones.
 
-💰 Desde $99.000 COP/mes
+💰 Desde solo $99.000 COP/mes
 
-¿Hablamos? Te doy una demo gratis.`);
+✅ Sin contratos
+✅ Sin comisiones por pedido
+✅ Los clientes piden más rápido
+
+¿Le interesa una demo gratis? Es super fácil.`);
         }
         
         function renderLeads() {
@@ -179,8 +197,8 @@ Vi tu restaurante ${lead.name} en ${lead.city} y me contacted porque tenemos alg
                 <div class="lead-card">
                     <div class="lead-info">
                         <div class="lead-name">${lead.name}</div>
-                        <div class="lead-contact">📍 ${lead.city} | 📱 ${lead.contact}</div>
-                        ${lead.notes ? `<div style="color:#666;font-size:0.85rem">${lead.notes}</div>` : ''}
+                        <div class="lead-contact">📍 ${lead.city} - ${lead.address} | 📱 ${lead.contact}</div>
+                        <div class="lead-address">💬 ${lead.notes}</div>
                     </div>
                     <span class="status-badge status-${lead.status}">${lead.status.toUpperCase()}</span>
                     <a href="https://wa.me/57${lead.contact}?text=${generateMessage(lead)}" target="_blank" class="wa-btn">📤 WhatsApp</a>
@@ -199,6 +217,7 @@ Vi tu restaurante ${lead.name} en ${lead.city} y me contacted porque tenemos alg
             if (next) {
                 document.getElementById('next-lead-name').textContent = next.name;
                 document.getElementById('next-lead-city').textContent = next.city;
+                document.getElementById('next-lead-address').textContent = next.address;
                 document.getElementById('next-lead-contact').textContent = next.contact;
                 document.getElementById('wa-link').href = `https://wa.me/57${next.contact}?text=${generateMessage(next)}`;
             }
